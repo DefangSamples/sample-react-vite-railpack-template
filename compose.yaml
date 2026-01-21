@@ -1,0 +1,16 @@
+name: react-vite-railpack
+services:
+  app:
+    restart: unless-stopped
+    build:
+      context: ./app
+    environment:
+      PORT: 5173
+    ports:
+    - target: 5173
+      published: 5173
+      mode: ingress
+    deploy:
+      resources:
+        reservations:
+          memory: 512M
